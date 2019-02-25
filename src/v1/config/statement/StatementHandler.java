@@ -4,6 +4,7 @@ import v1.config.Configuration;
 import v1.config.MapperRegistory;
 import v1.config.result.ResultSetHandle;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -32,7 +33,14 @@ public class StatementHandler {
             return (T) resultSetHandle.handler(stpm,mapperData);
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     private Connection getConnection() {

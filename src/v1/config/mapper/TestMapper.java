@@ -1,7 +1,7 @@
 package v1.config.mapper;
 
-import v1.bean.Test;
+import v1.bean.User;
 
 public interface TestMapper {
-    Test selectById(String id);
+    User selectById(String id);
 }

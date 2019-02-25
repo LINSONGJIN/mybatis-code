@@ -1,13 +1,13 @@
 package v1.config.excutor;
 
-import v1.Excutor;
 import v1.config.Configuration;
 import v1.config.MapperRegistory;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CachingExcutor implements Excutor {
+public class CachingExcutor implements Executor {
 
     private Configuration configuration;
 
@@ -23,8 +23,7 @@ public class CachingExcutor implements Excutor {
         this.configuration = configuration;
     }
 
-    @Override
-    public <T> T query(MapperRegistory.MapperData mapperData, Object parameter) {
+    public <T> T query(MapperRegistory.MapperData mapperData, Object parameter) throws SQLException {
         Object result = localCache.get(mapperData.getSql());
         if (null != result){
             System.out.println("命中缓存");

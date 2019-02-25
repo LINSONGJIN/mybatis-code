@@ -1,18 +1,18 @@
 package v1.config;
 
-import v1.bean.Test;
+import v1.bean.User;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class MapperRegistory {
 
-    private static final Map<String,MapperData> methodSqlMapping = new HashMap<>();
+    private static final Map<String,MapperData> methodSqlMapping = new HashMap<String,MapperData>();
 
     public MapperRegistory(String path,String method) {
         path = path.replaceAll("//",".")+"."+method;
         String sql = "SELECT * FROM test where id = %d";
-        methodSqlMapping.put(path,new MapperData(sql,Test.class));
+        methodSqlMapping.put(path,new MapperData(sql,User.class));
     }
 
     public class MapperData<T>{

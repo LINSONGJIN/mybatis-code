@@ -2,21 +2,22 @@ package v1;
 
 import v1.config.Configuration;
 import v1.config.MapperRegistory;
+import v1.config.excutor.Executor;
 
 import java.lang.reflect.Proxy;
 
 public class SqlSession {
 
     private Configuration configuration;
-    private Excutor excutor;
+    private Executor executor;
 
     public Configuration getConfiguration() {
         return configuration;
     }
 
-    public SqlSession(Configuration configuration, Excutor excutor) {
+    public SqlSession(Configuration configuration, Executor executor) {
         this.configuration = configuration;
-        this.excutor = excutor;
+        this.executor = executor;
     }
 
     public <T> T getMapper(Class<T> clazz){
@@ -26,7 +27,7 @@ public class SqlSession {
                 new MapperProxy(this,clazz));
     }
 
-    public <T> T selectOne(MapperRegistory.MapperData statem, Object parameter){
-        return excutor.query(statem,parameter);
+    public <T> T selectOne(MapperRegistory.MapperData statem, Object parameter) throws Exception {
+        return executor.query(statem,parameter);
     }
 }

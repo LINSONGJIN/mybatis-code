@@ -16,7 +16,6 @@ public class MapperProxy<T> implements InvocationHandler {
         this.mapperInterface = mapperInterface;
     }
 
-    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         MapperRegistory.MapperData data= sqlSession.getConfiguration()
                 .getMapperRegistory(method.getDeclaringClass().getName(),method.getName())
