@@ -5,6 +5,7 @@ import v1.config.Configuration;
 import v1.config.excutor.Executor;
 import v1.config.excutor.ExecutorFactory;
 import v1.config.mapper.TestMapper;
+import v1.config.sqlsession.SqlSession;
 
 public class Test {
 

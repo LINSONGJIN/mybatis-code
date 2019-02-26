@@ -1,6 +1,7 @@
 package v1;
 
 import v1.config.MapperRegistory;
+import v1.config.sqlsession.SqlSession;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
